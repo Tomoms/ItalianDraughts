@@ -29,9 +29,9 @@ public class BoardDrawer {
             for (int col = 0; col < Board.SIZE; col++) {
                 Tile square;
                 if ((row + col) % 2 == 0) {
-                    square = new Tile(this, TileType.BRONZE, row, col);
+                    square = new Tile(this, TileType.BRONZE, row, col, tileSize);
                 } else {
-                    square = new Tile(this, TileType.WHITE_SMOKE, row, col);
+                    square = new Tile(this, TileType.WHITE_SMOKE, row, col, tileSize);
                 }
                 tiles[row][col] = square;
                 gridPane.add(square, col, row);
@@ -56,7 +56,7 @@ public class BoardDrawer {
                 tiles[i][j].getChildren().clear();
                 Piece piece = matrix[i][j];
                 if (piece != null) {
-                    new PieceDrawer(piece, tileSize).draw(tiles[i][j]);
+                    new PieceDrawer(piece, tiles[i][j]).draw();
                     tiles[i][j].setEmpty(false);
                 } else {
                     tiles[i][j].setEmpty(true);

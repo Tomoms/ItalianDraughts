@@ -11,16 +11,18 @@ public class PieceDrawer extends StackPane {
     private final Ellipse baseEllipse;
     private final Ellipse upperEllipse;
     private final Piece piece;
+    private final Tile tile;
 
 
-    public PieceDrawer(Piece piece, double tileSize) {
+    public PieceDrawer(Piece piece, Tile tile) {
         this.piece = piece;
+        this.tile = tile;
 
-        baseEllipse = createEllipse(tileSize);
+        baseEllipse = createEllipse(tile.getSize());
         baseEllipse.setFill(Color.BLACK);
-        baseEllipse.setTranslateY(tileSize * 0.07);
+        baseEllipse.setTranslateY(tile.getSize() * 0.07);
 
-        upperEllipse = createEllipse(tileSize);
+        upperEllipse = createEllipse(tile.getSize());
         upperEllipse.setFill(Color.valueOf(piece.getPieceType().getHexColor()));
     }
 
@@ -35,7 +37,7 @@ public class PieceDrawer extends StackPane {
         return piece;
     }
 
-    void draw(Tile tile) {
+    void draw() {
         tile.getChildren().add(baseEllipse);
         tile.getChildren().add(upperEllipse);
     }

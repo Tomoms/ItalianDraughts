@@ -11,14 +11,16 @@ public class Tile extends StackPane {
     private boolean highlighted;
     private boolean empty;
     private final TileType type;
+    private final double size;
     private static final String HIGHLIGHT_COLOR = "#56db39";
 
-    public Tile(BoardDrawer drawer, TileType type, int x, int y) {
+    public Tile(BoardDrawer drawer, TileType type, int x, int y, double size) {
         this.drawer = drawer;
         this.x = x;
         this.y = y;
         this.type = type;
         this.empty = true;
+        this.size = size;
         this.setStyle("-fx-background-color: " + type.getHex() + ";");
         this.setOnMouseClicked(this::notifyClick);
     }
@@ -33,6 +35,10 @@ public class Tile extends StackPane {
 
     boolean isEmpty() {
         return empty;
+    }
+
+    public double getSize() {
+        return size;
     }
 
     void setEmpty(boolean value) {
