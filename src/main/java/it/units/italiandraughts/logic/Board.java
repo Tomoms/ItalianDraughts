@@ -1,7 +1,7 @@
 package it.units.italiandraughts.logic;
 
 
-import it.units.italiandraughts.ui.BoardDrawer;
+import it.units.italiandraughts.ui.Drawer;
 import it.units.italiandraughts.ui.PieceType;
 
 import java.util.Arrays;
@@ -24,8 +24,8 @@ public class Board {
         }
     }
 
-    public void draw(BoardDrawer boardDrawer) {
-        boardDrawer.draw(board);
+    public void draw(Drawer drawer) {
+        drawer.draw();
     }
 
     public void move(Piece piece, int toX, int toY){

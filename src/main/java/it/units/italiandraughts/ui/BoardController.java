@@ -35,23 +35,24 @@ public class BoardController {
     Button undo;
 
     public void initialize() {
-        BoardDrawer boardDrawer = new BoardDrawer(gridPane);
         Board board = new Board();
-        board.draw(boardDrawer);
+        Drawer drawer = new Drawer(gridPane, board);
+        drawer.draw();
+
         Player player1 = new Player(player1NameLabel.getText(), PieceType.PLAYER1);
         Player player2 = new Player(player2NameLabel.getText(), PieceType.PLAYER2);
         Game game = new Game(board, player1, player2);
 
 
         board.move(board.getBoard()[0][0], 4, 4);
-        board.draw(boardDrawer);
+        board.draw(drawer);
 
         // resize the numbers to the left of board
         List<Node> rowLabels = rowNumbers.getChildren();
         rowLabels.forEach(e -> {
             Label label = (Label) e;
-            label.setMaxHeight(BoardDrawer.getBoardHeight() / Board.SIZE);
-            label.setMinHeight(BoardDrawer.getBoardHeight() / Board.SIZE);
+            label.setMaxHeight(Drawer.getBoardHeight() / Board.SIZE);
+            label.setMinHeight(Drawer.getBoardHeight() / Board.SIZE);
         });
 
         Platform.runLater(() -> columnLetters.setPadding(
@@ -62,8 +63,8 @@ public class BoardController {
         List<Node> columnLabels = columnLetters.getChildren();
         columnLabels.forEach(e -> {
             Label label = (Label) e;
-            label.setMaxWidth(BoardDrawer.getBoardHeight() / Board.SIZE);
-            label.setMinWidth(BoardDrawer.getBoardHeight() / Board.SIZE);
+            label.setMaxWidth(Drawer.getBoardHeight() / Board.SIZE);
+            label.setMinWidth(Drawer.getBoardHeight() / Board.SIZE);
         });
 
         line.setEndX(gridPane.getMaxWidth());

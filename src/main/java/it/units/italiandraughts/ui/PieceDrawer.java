@@ -1,11 +1,10 @@
 package it.units.italiandraughts.ui;
 
 import it.units.italiandraughts.logic.Piece;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 
-public class PieceDrawer extends StackPane {
+public class PieceDrawer{
 
 
     private final Ellipse baseEllipse;

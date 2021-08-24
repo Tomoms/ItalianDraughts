@@ -5,7 +5,7 @@ import javafx.scene.layout.StackPane;
 
 public class Tile extends StackPane {
 
-    BoardDrawer drawer;
+    Drawer drawer;
     private final int x;
     private final int y;
     private boolean highlighted;
@@ -14,7 +14,7 @@ public class Tile extends StackPane {
     private final double size;
     private static final String HIGHLIGHT_COLOR = "#56db39";
 
-    public Tile(BoardDrawer drawer, TileType type, int x, int y, double size) {
+    public Tile(Drawer drawer, TileType type, int x, int y, double size) {
         this.drawer = drawer;
         this.x = x;
         this.y = y;

@@ -9,15 +9,17 @@ import javafx.scene.layout.RowConstraints;
 
 import java.util.Arrays;
 
-public class BoardDrawer {
+public class Drawer {
     private final Tile[][] tiles;
+    private final Board board;
 
     protected static double getBoardHeight() {
         return ItalianDraughts.getScreenHeight() / 3 * 2;
     }
 
-    public BoardDrawer(GridPane gridPane) {
+    public Drawer(GridPane gridPane, Board board) {
         tiles = new Tile[Board.SIZE][Board.SIZE];
+        this.board = board;
 
         gridPane.setMinSize(getBoardHeight(), getBoardHeight());
         gridPane.setMaxSize(getBoardHeight(), getBoardHeight());
@@ -49,11 +51,11 @@ public class BoardDrawer {
 
     }
 
-    public void draw(Piece[][] matrix) {
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix.length; j++) {
+    public void draw() {
+        for (int i = 0; i < Board.SIZE; i++) {
+            for (int j = 0; j < Board.SIZE; j++) {
                 tiles[i][j].getChildren().clear();
-                Piece piece = matrix[i][j];
+                Piece piece = board.getBoard()[i][j];
                 if (piece != null) {
                     new PieceDrawer(piece, tiles[i][j]).draw();
                     tiles[i][j].setEmpty(false);
