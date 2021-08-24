@@ -11,7 +11,6 @@ import java.util.Arrays;
 
 public class BoardDrawer {
     private final Tile[][] tiles;
-    private final double tileSize;
 
     protected static double getBoardHeight() {
         return ItalianDraughts.getScreenHeight() / 3 * 2;
@@ -23,7 +22,7 @@ public class BoardDrawer {
         gridPane.setMinSize(getBoardHeight(), getBoardHeight());
         gridPane.setMaxSize(getBoardHeight(), getBoardHeight());
 
-        tileSize = gridPane.getMaxHeight() / 8;
+        double tileSize = gridPane.getMaxHeight() / Board.SIZE;
 
         for (int row = 0; row < Board.SIZE; row++) {
             for (int col = 0; col < Board.SIZE; col++) {
@@ -65,9 +64,6 @@ public class BoardDrawer {
         }
     }
 
-    public double getTileSize() {
-        return tileSize;
-    }
 
     void markAsClicked(int x, int y) {
         Tile tile = tiles[x][y];
