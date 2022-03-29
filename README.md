@@ -1,3 +1,7 @@
+# Project moved
+
+Newer, final repo: https://github.com/AndreaGonzato/ItalianDraughts/
+
 # ItalianDraughts
 
 This is the Java implementation of the board game Italian Draughts.
